@@ -339,6 +339,7 @@ extern const u8 gText_MysteryGiftCantUse[];
 extern const u8 gText_MysteryEventsCantUse[];
 extern const u8 gText_Birch_Welcome[];
 extern const u8 gText_ThisIsAPokemon[];
+extern const u8 gText_Prologue[];
 extern const u8 gText_Birch_MainSpeech[];
 extern const u8 gText_Birch_AndYouAre[];
 extern const u8 gText_Birch_BoyOrGirl[];
