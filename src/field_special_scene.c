@@ -19,7 +19,7 @@
 #include "constants/songs.h"
 #include "constants/metatile_labels.h"
 
-#define SECONDS(value) ((signed) (60.0 * value + 0.5))
+#define SECONDS(value) ((signed)(60.0 * value + 0.5))
 
 // porthole states
 enum
@@ -33,17 +33,15 @@ enum
 //. rodata
 static const s8 gTruckCamera_HorizontalTable[] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 2, 2, -1, -1, -1, 0};
 
-static const u8 sSSTidalSailEastMovementScript[] = 
-{
-    MOVEMENT_ACTION_WALK_FAST_RIGHT, 
-    MOVEMENT_ACTION_STEP_END
-};
+static const u8 sSSTidalSailEastMovementScript[] =
+    {
+        MOVEMENT_ACTION_WALK_FAST_RIGHT,
+        MOVEMENT_ACTION_STEP_END};
 
-static const u8 sSSTidalSailWestMovementScript[] = 
-{
-    MOVEMENT_ACTION_WALK_FAST_LEFT, 
-    MOVEMENT_ACTION_STEP_END
-};
+static const u8 sSSTidalSailWestMovementScript[] =
+    {
+        MOVEMENT_ACTION_WALK_FAST_LEFT,
+        MOVEMENT_ACTION_STEP_END};
 
 // .text
 static void Task_Truck3(u8);
@@ -80,7 +78,7 @@ void Task_Truck1(u8 taskId)
     SetObjectEventSpritePosByLocalIdAndMap(3, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, -3 - cameraXpan, box3);
 
     if (++data[0] == SECONDS(500)) // this will never run
-        data[0] = 0; // reset the timer if it gets stuck.
+        data[0] = 0;               // reset the timer if it gets stuck.
 
     cameraYpan = GetTruckCameraBobbingY(data[0]);
     SetCameraPanning(cameraXpan, cameraYpan);
@@ -126,36 +124,36 @@ void Task_Truck2(u8 taskId)
 
 static void Task_Truck3(u8 taskId)
 {
-   s16 *data = gTasks[taskId].data;
-   s16 cameraXpan;
-   s16 cameraYpan;
+    s16 *data = gTasks[taskId].data;
+    s16 cameraXpan;
+    s16 cameraYpan;
 
-   data[0]++;
+    data[0]++;
 
-   if (data[0] > 5)
-   {
-       data[0] = 0;
-       data[1]++;
-   }
+    if (data[0] > 5)
+    {
+        data[0] = 0;
+        data[1]++;
+    }
 
-   if ((u16)data[1] == 19)
-   {
-       DestroyTask(taskId);
-   }
-   else
-   {
-       cameraXpan = gTruckCamera_HorizontalTable[data[1]];
-       cameraYpan = 0;
-       SetCameraPanning(cameraXpan, 0);
-       SetObjectEventSpritePosByLocalIdAndMap(1, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, 3 - cameraXpan, cameraYpan + 3);
-       SetObjectEventSpritePosByLocalIdAndMap(2, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, -cameraXpan, cameraYpan - 3);
-       SetObjectEventSpritePosByLocalIdAndMap(3, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, -3 - cameraXpan, cameraYpan);
-   }
+    if ((u16)data[1] == 19)
+    {
+        DestroyTask(taskId);
+    }
+    else
+    {
+        cameraXpan = gTruckCamera_HorizontalTable[data[1]];
+        cameraYpan = 0;
+        SetCameraPanning(cameraXpan, 0);
+        SetObjectEventSpritePosByLocalIdAndMap(1, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, 3 - cameraXpan, cameraYpan + 3);
+        SetObjectEventSpritePosByLocalIdAndMap(2, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, -cameraXpan, cameraYpan - 3);
+        SetObjectEventSpritePosByLocalIdAndMap(3, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, -3 - cameraXpan, cameraYpan);
+    }
 }
 
 void Task_HandleTruckSequence(u8 taskId)
 {
-   s16 *data = gTasks[taskId].data;
+    s16 *data = gTasks[taskId].data;
 
     switch (data[0])
     {
@@ -229,6 +227,7 @@ void Task_HandleTruckSequence(u8 taskId)
 
 void ExecuteTruckSequence(void)
 {
+    /*
     MapGridSetMetatileIdAt(11, 8, METATILE_InsideOfTruck_DoorClosedFloor_Top);
     MapGridSetMetatileIdAt(11, 9, METATILE_InsideOfTruck_DoorClosedFloor_Mid);
     MapGridSetMetatileIdAt(11, 10, METATILE_InsideOfTruck_DoorClosedFloor_Bottom);
@@ -236,6 +235,7 @@ void ExecuteTruckSequence(void)
     ScriptContext2_Enable();
     CpuFastFill(0, gPlttBufferFaded, 0x400);
     CreateTask(Task_HandleTruckSequence, 0xA);
+    */
 }
 
 void EndTruckSequence(u8 taskId)

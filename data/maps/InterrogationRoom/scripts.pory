@@ -1,0 +1,84 @@
+const LOCALID_AGENT = 1
+
+mapscripts InterrogationRoom_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: InterrogationRoom_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_GAMESTATE, 0: InterrogationRoom_FirstScene
+    ]
+}
+
+script InterrogationRoom_OnTransition{
+	setflag(FLAG_SYS_PREVENT_MAP_FADE)
+}
+
+script InterrogationRoom_FirstScene{
+	lockall
+
+	setobjectxy(LOCALID_AGENT,5,7)
+	applymovement(LOCALID_AGENT,CommonMovement_FaceRight)
+	removeobject(LOCALID_AGENT)
+	applymovement(OBJ_EVENT_ID_PLAYER,CommonMovement_FaceUp)
+
+	msgbox("???: Alright.")
+	closemessage
+
+	delay(30)
+
+	fadescreen(FADE_FROM_BLACK)
+	clearflag(FLAG_SYS_PREVENT_MAP_FADE)
+
+	special(SpawnCameraObject)
+
+	applymovement(OBJ_EVENT_ID_CAMERA,InterogationRoom_CameraUp)
+	waitmovement(0)
+
+	playse(SE_DOOR)
+	waitse
+	addobject(LOCALID_AGENT)
+	delay(30)
+
+	applymovement(LOCALID_AGENT,InterogationRoom_AgentSit)
+	waitmovement(0)
+
+	delay(30)
+
+	msgbox("???: I see you finally decided to talk.")
+	closemessage
+	delay(30)
+	msgbox("???: See?\nThis isn't so bad.\pLet us begin.")
+	closemessage
+
+	setvar(VAR_GAMESTATE, 1)
+
+	closemessage
+	releaseall
+	end
+}
+
+movement InterogationRoom_CameraUp {
+	walk_slow_up
+}
+
+movement CommonMovement_FaceLeft{
+	face_left
+}
+
+movement CommonMovement_FaceRight{
+	face_right
+}
+
+movement CommonMovement_FaceUp{
+	face_up
+}
+
+movement CommonMovement_FaceDown{
+	face_down
+}
+
+movement  InterogationRoom_AgentSit{
+	walk_slow_right
+	walk_slow_down
+	walk_slow_right
+	face_down
+	delay_16
+}

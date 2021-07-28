@@ -1729,3 +1729,23 @@ gTilesetPalettes_UnionRoom:: @ 8395678
 	.align 2
 gTilesetTiles_UnionRoom:: @ 8395878
 	.incbin "data/tilesets/secondary/union_room/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_InterrogationRoom::
+	.incbin "data/tilesets/secondary/interrogationroom/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/interrogationroom/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/interrogationroom/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/interrogationroom/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/interrogationroom/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/interrogationroom/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/interrogationroom/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/interrogationroom/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/interrogationroom/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/interrogationroom/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/interrogationroom/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/interrogationroom/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/interrogationroom/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_InterrogationRoom::
+	.incbin "data/tilesets/secondary/interrogationroom/tiles.4bpp.lz"

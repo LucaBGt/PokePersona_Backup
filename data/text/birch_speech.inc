@@ -33,13 +33,12 @@ gText_Birch_AndYouAre:: @ 82C8BD0
 	.string "$"
 
 gText_Birch_BoyOrGirl:: @ 82C8BDD
-	.string "This you?\p"
-	.string "$"
+	.string "This you?$"
 
 gText_Birch_WhatsYourName:: @ 82C8BFF
 	.string "All right.\n"
-	.string "Your name. Now.\p"
-	.string "$"
+	.string "Your name. Now.$"
+
 
 gText_Birch_SoItsPlayer:: @ 82C8C1C
 	.string "So it's {PLAYER}{KUN}?\p"
