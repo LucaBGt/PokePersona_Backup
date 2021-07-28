@@ -371,3 +371,7 @@ const u32 gObjectEventPic_Lugia[] = INCBIN_U32("graphics/object_events/pics/poke
 const u16 gObjectEventPal_Lugia[] = INCBIN_U16("graphics/object_events/palettes/lugia.gbapal");
 const u32 gObjectEventPic_HoOh[] = INCBIN_U32("graphics/object_events/pics/pokemon/ho_oh.4bpp");
 const u16 gObjectEventPal_HoOh[] = INCBIN_U16("graphics/object_events/palettes/ho_oh.gbapal");
+
+//New OWs
+const u32 gObjectEventPic_Agent[] = INCBIN_U32("graphics/object_events/pics/people/agent.4bpp");
+const u16 gObjectEventPal_Agent[] = INCBIN_U16("graphics/object_events/palettes/agent.gbapal");
