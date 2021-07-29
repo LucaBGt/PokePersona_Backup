@@ -28,8 +28,8 @@ static const union AnimCmd *const sAnims[] =
     sAnimCmdLoop
 };
 
-static const u32 sPic1Gfx[] = INCBIN_U32("graphics/pokemon/altaria/anim_front.4bpp.lz");
-static const u16 sPic1Pal[] = INCBIN_U16("graphics/pokemon/altaria/normal.gbapal");
+static const u32 sPicAgent[] = INCBIN_U32("graphics/portraits/agent.4bpp.lz");
+static const u16 sPalAgent[] = INCBIN_U16("graphics/object_events/palettes/agent.gbapal");
 
 static const u32 sPic2Gfx[] = INCBIN_U32("graphics/battle_anims/sprites/duck.4bpp.lz");
 static const u16 sPic2Pal[] = INCBIN_U16("graphics/battle_anims/sprites/duck.gbapal");
@@ -56,7 +56,7 @@ FieldPicExample_1pic:
 
 static const struct Pic sPics[] =
 {
-    {sPic1Gfx, sPic1Pal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnims},
+    {sPicAgent, sPalAgent, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64)},
     {sPic2Gfx, sPic2Pal, SPRITE_SHAPE(16x16), SPRITE_SIZE(16x16)},
 };
 

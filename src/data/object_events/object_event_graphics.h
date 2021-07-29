@@ -375,3 +375,11 @@ const u16 gObjectEventPal_HoOh[] = INCBIN_U16("graphics/object_events/palettes/h
 //New OWs
 const u32 gObjectEventPic_Agent[] = INCBIN_U32("graphics/object_events/pics/people/agent.4bpp");
 const u16 gObjectEventPal_Agent[] = INCBIN_U16("graphics/object_events/palettes/agent.gbapal");
+
+const u32 gObjectEventPic_File[] = INCBIN_U32("graphics/object_events/pics/people/file.4bpp");
+
+const u32 gObjectEventPic_Elm[] = INCBIN_U32("graphics/object_events/pics/people/elm.4bpp");
+const u16 gObjectEventPal_Elm[] = INCBIN_U16("graphics/object_events/palettes/elm.gbapal");
+
+const u16 gObjectEventPal_Balls[] = INCBIN_U16("graphics/object_events/palettes/balls.gbapal");
+

@@ -1,0 +1,13 @@
+mapscripts IntroMap_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_GAMESTATE, 0: Prepare
+    ]
+}
+
+script Prepare{
+    lock
+    setflag(FLAG_SYS_PREVENT_MAP_FADE)
+	warpsilent(MAP_INTERROGATION_ROOM,-1,7,10)
+    setvar(VAR_GAMESTATE, 1)
+    end
+}

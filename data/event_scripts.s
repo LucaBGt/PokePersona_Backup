@@ -1064,3 +1064,7 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/text/birch_speech.inc"
 
 	.include "data/maps/InterrogationRoom/scripts.inc"
+
+	.include "data/maps/OakLab_Intro/scripts.inc"
+
+	.include "data/maps/IntroMap/scripts.inc"

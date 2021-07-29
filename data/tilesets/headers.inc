@@ -841,3 +841,14 @@ gTileset_InterrogationRoom::
 	.4byte gMetatiles_InterrogationRoom
 	.4byte gMetatileAttributes_InterrogationRoom
 	.4byte NULL
+
+	.align 2
+gTileset_OakLab::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_OakLab
+	.4byte gTilesetPalettes_OakLab
+	.4byte gMetatiles_OakLab
+	.4byte gMetatileAttributes_OakLab
+	.4byte NULL

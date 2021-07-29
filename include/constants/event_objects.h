@@ -242,8 +242,10 @@
 #define OBJ_EVENT_GFX_HOOH 238
 //New OWs
 #define OBJ_EVENT_GFX_AGENT 239
+#define OBJ_EVENT_GFX_FILE 240
+#define OBJ_EVENT_GFX_PROF_ELM 241
 
-#define NUM_OBJ_EVENT_GFX 240
+#define NUM_OBJ_EVENT_GFX 241
 
 // These are dynamic object gfx ids.
 // They correspond with the values of the VAR_OBJ_GFX_ID_X vars.

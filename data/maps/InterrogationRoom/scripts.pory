@@ -1,25 +1,29 @@
 const LOCALID_AGENT = 1
+const LOCALID_FILE = 2
 
 mapscripts InterrogationRoom_MapScripts {
-	MAP_SCRIPT_ON_TRANSITION: InterrogationRoom_OnTransition
-	MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_GAMESTATE, 0: InterrogationRoom_FirstScene
-    ]
-}
+		MAP_SCRIPT_ON_TRANSITION{
+        }
+		MAP_SCRIPT_ON_RESUME{
+			//setobjectxy(LOCALID_AGENT,19,19)
+			//setobjectxy(LOCALID_FILE,19,19)
 
-script InterrogationRoom_OnTransition{
-	setflag(FLAG_SYS_PREVENT_MAP_FADE)
+		}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_GAMESTATE, 1: InterrogationRoom_FirstScene
+    ]
 }
 
 script InterrogationRoom_FirstScene{
 	lockall
 
-	setobjectxy(LOCALID_AGENT,5,7)
-	applymovement(LOCALID_AGENT,CommonMovement_FaceRight)
-	removeobject(LOCALID_AGENT)
+	setobjectxy(LOCALID_AGENT,19,19)
+	setobjectxy(LOCALID_FILE,19,19)
 	applymovement(OBJ_EVENT_ID_PLAYER,CommonMovement_FaceUp)
 
-	msgbox("???: Alright.")
+	delay(30)
+
+	msgbox("???: And so, the game begins.")
 	closemessage
 
 	delay(30)
@@ -29,12 +33,19 @@ script InterrogationRoom_FirstScene{
 
 	special(SpawnCameraObject)
 
+	delay(30)
+
 	applymovement(OBJ_EVENT_ID_CAMERA,InterogationRoom_CameraUp)
 	waitmovement(0)
 
+	delay(30)
+
 	playse(SE_DOOR)
 	waitse
-	addobject(LOCALID_AGENT)
+	setobjectxy(LOCALID_AGENT,5,7)
+	//clearflag(FLAG_HIDE_AGENT)
+
+	applymovement(LOCALID_AGENT,CommonMovement_FaceRight)
 	delay(30)
 
 	applymovement(LOCALID_AGENT,InterogationRoom_AgentSit)
@@ -42,13 +53,65 @@ script InterrogationRoom_FirstScene{
 
 	delay(30)
 
+	load_field_pic(0, 40, 80)
 	msgbox("???: I see you finally decided to talk.")
-	closemessage
-	delay(30)
 	msgbox("???: See?\nThis isn't so bad.\pLet us begin.")
 	closemessage
+	destroy_field_pic(0)
 
-	setvar(VAR_GAMESTATE, 1)
+	applymovement(LOCALID_AGENT,CommonMovement_FaceLeft)
+	waitmovement(0)
+	delay(60)
+	applymovement(LOCALID_AGENT,CommonMovement_FaceDown)
+	waitmovement(0)
+
+	delay(30)
+
+	setobjectxy(LOCALID_FILE,7,9)
+	clearflag(FLAG_HIDE_FILES)
+
+	delay(30)
+
+	load_field_pic(0, 40, 80)
+	msgbox("Agent: So.\nA bit of backstory on you.")
+	msgbox("Remember, I'm here to help you.\pYou're not getting away if you don't\ncooperate.")
+	closemessage
+	destroy_field_pic(0)
+
+	applymovement(LOCALID_FILE,InterogationRoom_OpenFile)
+	waitmovement(0)
+
+	load_field_pic(0, 40, 80)
+	msgbox("Agent: Says here you used to\nbe a POKéMON trainer.")
+	msgbox("A quite prolific one,\nat that.")
+	closemessage
+	destroy_field_pic(0)
+
+	delay(30)
+	call(Agent_ShakeHead)
+
+	load_field_pic(0, 40, 80)
+	msgbox("Now I'm wondering...\nHow does a person like THAT stoop to\lsuch lows...")
+	closemessage
+	destroy_field_pic(0)
+
+	playse(SE_DOOR)
+	fadescreen(FADE_TO_BLACK)
+
+	applymovement(OBJ_EVENT_ID_CAMERA,InterogationRoom_CameraDown)
+	waitmovement(0)
+	special(RemoveCameraObject)
+
+	msgbox(format("Agent: You got your start like so many trainers back in the day. How long ago was that?"))
+	closemessage
+	delay(60)
+	msgbox("PROLOGUE\n11 Years ago...",MSGBOX_SIGN)
+	closemessage
+
+	setvar(VAR_GAMESTATE, 2)
+
+	setflag(FLAG_SYS_REMOVE_WARP_FADE)
+	warp(MAP_OAK_LAB_INTRO,255,9,5)
 
 	closemessage
 	releaseall
@@ -56,7 +119,11 @@ script InterrogationRoom_FirstScene{
 }
 
 movement InterogationRoom_CameraUp {
-	walk_slow_up
+	walk_up * 2
+}
+
+movement InterogationRoom_CameraDown {
+	walk_down * 2
 }
 
 movement CommonMovement_FaceLeft{
@@ -80,5 +147,36 @@ movement  InterogationRoom_AgentSit{
 	walk_slow_down
 	walk_slow_right
 	face_down
+	delay_16
+}
+
+script Agent_ShakeHead{
+  applymovement(LOCALID_AGENT, CommonMovement_AgentShakeHead)
+  waitmovement(0)
+
+  delay(30)
+
+  return
+}
+
+movement CommonMovement_AgentShakeHead{
+	emote_anim_frame_one
+
+  	emote_anim_frame_two
+
+  	emote_anim_frame_one
+
+  	emote_anim_frame_two
+
+	face_down
+  	delay_16
+}
+
+movement  InterogationRoom_OpenFile{
+	face_down
+	delay_16
+	face_up
+	delay_16
+	face_left
 	delay_16
 }

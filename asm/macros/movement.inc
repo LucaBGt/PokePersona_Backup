@@ -107,6 +107,7 @@
 	create_movement_action walk_down_start_affine
 	create_movement_action walk_down_affine
 
+
 	enum_start 0x8C
 	create_movement_action walk_diag_northwest
 	create_movement_action walk_diag_northeast
@@ -126,6 +127,8 @@
 	create_movement_action figure_8
 	create_movement_action fly_up
 	create_movement_action fly_down
+	create_movement_action emote_anim_frame_one
+	create_movement_action emote_anim_frame_two
 
 	enum_start 0xfe
 	create_movement_action step_end

@@ -1749,3 +1749,23 @@ gTilesetPalettes_InterrogationRoom::
 	.align 2
 gTilesetTiles_InterrogationRoom::
 	.incbin "data/tilesets/secondary/interrogationroom/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_OakLab::
+	.incbin "data/tilesets/secondary/oaklab/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/oaklab/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/oaklab/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/oaklab/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/oaklab/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/oaklab/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/oaklab/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/oaklab/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/oaklab/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/oaklab/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/oaklab/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/oaklab/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/oaklab/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_OakLab::
+	.incbin "data/tilesets/secondary/oaklab/tiles.4bpp.lz"

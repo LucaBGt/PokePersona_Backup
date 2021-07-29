@@ -125,7 +125,7 @@ static void ClearFrontierRecord(void)
 
 static void WarpToTruck(void)
 {
-    SetWarpDestination(26, 89, -1, 7, 10);
+    SetWarpDestination(26, 91, -1, 7, 10);
     WarpIntoMap();
 }
 

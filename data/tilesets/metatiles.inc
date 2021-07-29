@@ -565,3 +565,12 @@ gMetatiles_InterrogationRoom::
 	.align 1
 gMetatileAttributes_InterrogationRoom::
 	.incbin "data/tilesets/secondary/interrogationroom/metatile_attributes.bin"
+	
+
+	.align 1
+gMetatiles_OakLab::
+	.incbin "data/tilesets/secondary/oaklab/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_OakLab::
+	.incbin "data/tilesets/secondary/oaklab/metatile_attributes.bin"
