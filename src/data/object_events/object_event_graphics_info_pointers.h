@@ -492,6 +492,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     //New OWs
     [OBJ_EVENT_GFX_AGENT] = &gObjectEventGraphicsInfo_Agent,
     [OBJ_EVENT_GFX_FILE] = &gObjectEventGraphicsInfo_File,
+    [OBJ_EVENT_GFX_ELM] = &gObjectEventGraphicsInfo_Elm,
 
 };
 
