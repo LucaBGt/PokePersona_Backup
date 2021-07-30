@@ -7,6 +7,6 @@ mapscripts OakLab_Intro_MapScripts {
 script OakLab_Intro_Init{
     msgbox("Transform!")
     closemessage
-    //special(SetPlayerTeen)
+    //special(NameRival)
     setvar(VAR_TEMP_0, 1)
 }
