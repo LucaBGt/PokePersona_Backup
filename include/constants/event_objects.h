@@ -244,8 +244,9 @@
 #define OBJ_EVENT_GFX_AGENT 239
 #define OBJ_EVENT_GFX_FILE 240
 #define OBJ_EVENT_GFX_ELM 241
+#define OBJ_EVENT_GFX_OAK_YOUNG 242
 
-#define NUM_OBJ_EVENT_GFX 242
+#define NUM_OBJ_EVENT_GFX 243
 
 // These are dynamic object gfx ids.
 // They correspond with the values of the VAR_OBJ_GFX_ID_X vars.

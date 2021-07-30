@@ -1,1 +1,12 @@
-mapscripts OakLab_Intro_MapScripts {}
+mapscripts OakLab_Intro_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_0, 0: OakLab_Intro_Init
+    ]
+}
+
+script OakLab_Intro_Init{
+    msgbox("Transform!")
+    closemessage
+    //special(SetPlayerTeen)
+    setvar(VAR_TEMP_0, 1)
+}

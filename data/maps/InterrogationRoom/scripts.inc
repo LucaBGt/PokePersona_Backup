@@ -83,7 +83,7 @@ InterrogationRoom_FirstScene::
 	closemessage
 	setvar VAR_GAMESTATE, 2
 	setflag FLAG_SYS_REMOVE_WARP_FADE
-	warp MAP_OAK_LAB_INTRO, 255, 9, 5
+	warp MAP_OAK_LAB_INTRO, 255, 9, 20
 	closemessage
 	releaseall
 	end

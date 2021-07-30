@@ -4425,7 +4425,7 @@
       "id": "LAYOUT_OAK_LAB_INTRO",
       "name": "OakLab_Intro_Layout",
       "width": 20,
-      "height": 20,
+      "height": 25,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_OakLab",
       "border_filepath": "data/layouts/OakLab_Intro/border.bin",

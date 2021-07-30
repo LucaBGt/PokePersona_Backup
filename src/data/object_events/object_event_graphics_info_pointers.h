@@ -248,6 +248,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldM
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Agent;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_File;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Elm;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Oak_Young;
+
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] = &gObjectEventGraphicsInfo_BrendanNormal,
@@ -493,6 +495,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_AGENT] = &gObjectEventGraphicsInfo_Agent,
     [OBJ_EVENT_GFX_FILE] = &gObjectEventGraphicsInfo_File,
     [OBJ_EVENT_GFX_ELM] = &gObjectEventGraphicsInfo_Elm,
+    [OBJ_EVENT_GFX_OAK_YOUNG] = &gObjectEventGraphicsInfo_Oak_Young,
 
 };
 

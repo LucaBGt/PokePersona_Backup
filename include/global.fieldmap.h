@@ -239,6 +239,7 @@ enum {
     PLAYER_AVATAR_STATE_FIELD_MOVE,
     PLAYER_AVATAR_STATE_FISHING,
     PLAYER_AVATAR_STATE_WATERING,
+    PLAYER_AVATAR_STATE_TEEN,
 };
 
 #define PLAYER_AVATAR_FLAG_ON_FOOT     (1 << 0)
@@ -249,6 +250,8 @@ enum {
 #define PLAYER_AVATAR_FLAG_5           (1 << 5)
 #define PLAYER_AVATAR_FLAG_FORCED_MOVE (1 << 6)
 #define PLAYER_AVATAR_FLAG_DASH        (1 << 7)
+#define PLAYER_AVATAR_FLAG_TEEN        (1 << 8)
+
 
 enum
 {

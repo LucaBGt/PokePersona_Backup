@@ -85,6 +85,8 @@ static void PlayerAvatarTransition_AcroBike(struct ObjectEvent *a);
 static void PlayerAvatarTransition_Surfing(struct ObjectEvent *a);
 static void PlayerAvatarTransition_Underwater(struct ObjectEvent *a);
 static void PlayerAvatarTransition_ReturnToField(struct ObjectEvent *a);
+static void PlayerAvatarTransition_Teen(struct ObjectEvent *a);
+void SetPlayerTeen(void);
 
 static bool8 player_is_anim_in_certain_ranges(void);
 static bool8 sub_808B618(void);
@@ -222,6 +224,7 @@ static void (*const sPlayerAvatarTransitionFuncs[])(struct ObjectEvent *) =
     [PLAYER_AVATAR_STATE_FIELD_MOVE] = PlayerAvatarTransition_ReturnToField,
     [PLAYER_AVATAR_STATE_FISHING]    = PlayerAvatarTransition_Dummy,
     [PLAYER_AVATAR_STATE_WATERING]   = PlayerAvatarTransition_Dummy,
+    [PLAYER_AVATAR_STATE_TEEN]       = PlayerAvatarTransition_Teen,
 };
 
 static bool8 (*const sArrowWarpMetatileBehaviorChecks[])(u8) =
@@ -241,7 +244,8 @@ static const u16 sRivalAvatarGfxIds[][2] =
     {OBJ_EVENT_GFX_BRENDAN_UNDERWATER,       OBJ_EVENT_GFX_MAY_UNDERWATER},
     {OBJ_EVENT_GFX_RIVAL_BRENDAN_FIELD_MOVE, OBJ_EVENT_GFX_RIVAL_MAY_FIELD_MOVE},
     {OBJ_EVENT_GFX_BRENDAN_FISHING,          OBJ_EVENT_GFX_MAY_FISHING},
-    {OBJ_EVENT_GFX_BRENDAN_WATERING,         OBJ_EVENT_GFX_MAY_WATERING}
+    {OBJ_EVENT_GFX_BRENDAN_WATERING,         OBJ_EVENT_GFX_MAY_WATERING},
+    {OBJ_EVENT_GFX_AGENT,         OBJ_EVENT_GFX_AGENT},
 };
 
 static const u16 sPlayerAvatarGfxIds[][2] =
@@ -254,13 +258,14 @@ static const u16 sPlayerAvatarGfxIds[][2] =
     {OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE, OBJ_EVENT_GFX_MAY_FIELD_MOVE},
     {OBJ_EVENT_GFX_BRENDAN_FISHING,    OBJ_EVENT_GFX_MAY_FISHING},
     {OBJ_EVENT_GFX_BRENDAN_WATERING,   OBJ_EVENT_GFX_MAY_WATERING},
+    {OBJ_EVENT_GFX_AGENT,   OBJ_EVENT_GFX_AGENT},
 };
 
 static const u16 sFRLGAvatarGfxIds[] = {OBJ_EVENT_GFX_RED, OBJ_EVENT_GFX_LEAF};
 
 static const u16 sRSAvatarGfxIds[] = {OBJ_EVENT_GFX_LINK_RS_BRENDAN, OBJ_EVENT_GFX_LINK_RS_MAY};
 
-static const u16 sPlayerAvatarGfxToStateFlag[2][5][2] =
+static const u16 sPlayerAvatarGfxToStateFlag[2][6][2] =
 {
     [MALE] =
     {
@@ -269,6 +274,7 @@ static const u16 sPlayerAvatarGfxToStateFlag[2][5][2] =
         {OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE,  PLAYER_AVATAR_FLAG_ACRO_BIKE},
         {OBJ_EVENT_GFX_BRENDAN_SURFING,    PLAYER_AVATAR_FLAG_SURFING},
         {OBJ_EVENT_GFX_BRENDAN_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER},
+        {OBJ_EVENT_GFX_AGENT,              PLAYER_AVATAR_FLAG_TEEN},
     },
     [FEMALE] =
     {
@@ -277,6 +283,7 @@ static const u16 sPlayerAvatarGfxToStateFlag[2][5][2] =
         {OBJ_EVENT_GFX_MAY_ACRO_BIKE,      PLAYER_AVATAR_FLAG_ACRO_BIKE},
         {OBJ_EVENT_GFX_MAY_SURFING,        PLAYER_AVATAR_FLAG_SURFING},
         {OBJ_EVENT_GFX_MAY_UNDERWATER,     PLAYER_AVATAR_FLAG_UNDERWATER},
+        {OBJ_EVENT_GFX_AGENT,              PLAYER_AVATAR_FLAG_TEEN},
     }
 };
 
@@ -833,6 +840,18 @@ static void PlayerAvatarTransition_Normal(struct ObjectEvent *objEvent)
     ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));
     ObjectEventTurn(objEvent, objEvent->movementDirection);
     SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
+}
+
+void SetPlayerTeen(void){
+    SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_MACH_BIKE);
+    DoPlayerAvatarTransition();
+}
+
+static void PlayerAvatarTransition_Teen(struct ObjectEvent *objEvent)
+{
+    ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_MACH_BIKE));
+    ObjectEventTurn(objEvent, objEvent->movementDirection);
+    SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_MACH_BIKE);
 }
 
 static void PlayerAvatarTransition_MachBike(struct ObjectEvent *objEvent)
